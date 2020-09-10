@@ -28,6 +28,13 @@ let question9 = new QuestionAnswer("How would you grab the first occurrence of a
 
 let question10 = new QuestionAnswer("What JavaScript input is wrapped in quotations?", "string")
 
+
+//Create a timer
+let secondsLeft = 120;
+
+
+
+
 $(document).ready(function () {
     $(".hide").hide()
     //Create .on("click", function (){}) on start button to show answer buttons
@@ -37,6 +44,19 @@ $(document).ready(function () {
         $("#start-button").hide()
         $(".hide").show()
 
+        function setTime() {
+            let timerInterval = setInterval(function () {
+                secondsLeft--;
+
+                if (secondsLeft === 0) {
+                    clearInterval(timerInterval);
+                }
+                console.log(secondsLeft)
+
+            }, 1000);
+        }
+        setTime()
+        console.log(secondsLeft)
     })
 
 
@@ -48,11 +68,6 @@ $(document).ready(function () {
             return false;
         }
     }
-
-
-
-    //Create a timer
-
 
 
 
